@@ -1,10 +1,9 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('acquisitions', {
-      id: {
-        type: Sequelize.INTEGER,
+    await queryInterface.createTable('vehicles', {
+      chassis: {
+        type: Sequelize.STRING,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
       },
 
@@ -33,19 +32,8 @@ module.exports = {
         allowNull: false,
       },
 
-      chassis: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'vehicles',
-          key: 'chassis',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-      },
-
-      price: {
-        type: Sequelize.FLOAT,
+      available: {
+        type: Sequelize.BOOLEAN,
         allowNull: false,
       },
 
@@ -62,6 +50,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('acquisitions');
+    await queryInterface.dropTable('vehicles');
   },
 };
