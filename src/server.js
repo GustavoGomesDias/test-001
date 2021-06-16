@@ -1,0 +1,8 @@
+import app from './app';
+
+const port = 3000;
+
+app.listen(port, () => {
+  console.log(`Server is running at ${port}`);
+  console.log(`CTRL + click in http://localhost:${port}`);
+});
