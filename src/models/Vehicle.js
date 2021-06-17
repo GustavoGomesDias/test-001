@@ -47,8 +47,12 @@ export default class Vehicle extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
         validate: {
-          isLicensePlate: {
-            msg: 'Placa inválida.',
+          notEmpty: {
+            msg: 'Valor requerido.',
+          },
+          is: {
+            args: [/^[a-zA-Z]{3}[0-9]{4}$/],
+            msg: 'Placa inválida',
           },
         },
       },
