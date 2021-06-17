@@ -3,7 +3,7 @@ import database from '../config/database';
 import Sale from '../models/Sale';
 import Vehicle from '../models/Vehicle';
 
-const models = [Sale, Vehicle];
+const models = [Vehicle, Sale];
 
 const connection = new Sequelize(database);
 

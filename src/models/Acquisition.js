@@ -1,18 +1,8 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Vehicle extends Model {
+export default class Acquisition extends Model {
   static init(sequelize) {
     super.init({
-      chassis: {
-        type: Sequelize.STRING,
-        defaultValue: '',
-        validate: {
-          notEmpty: {
-            msg: 'Valor requirido.',
-          },
-        },
-      },
-
       model: {
         type: Sequelize.STRING,
         defaultValue: '',
@@ -63,14 +53,27 @@ export default class Vehicle extends Model {
         },
       },
 
-      available: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true,
+      price: {
+        type: Sequelize.FLOAT,
+        defaultValue: '',
+        validate: {
+          isFloat: {
+            msg: 'A cor deve ter entr 3 e 255 caracteres.',
+          },
+          notEmpty: {
+            msg: 'Valor requirido.',
+          },
+        },
       },
+
     }, {
       sequelize,
     });
 
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Vehicle, { foreignKey: 'chassis' });
   }
 }

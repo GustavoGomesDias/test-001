@@ -10,6 +10,9 @@ export default class Sale extends Model {
           isFloat: {
             msg: 'Valor de compra inválido.',
           },
+          notEmpty: {
+            msg: 'Valor requirido.',
+          },
         },
       },
       commission: {
@@ -19,16 +22,18 @@ export default class Sale extends Model {
           isFloat: {
             msg: 'Comissão inválida.',
           },
+          notEmpty: {
+            msg: 'Valor requirido.',
+          },
         },
       },
     }, {
       sequelize,
     });
-
     return this;
   }
 
   static associate(models) {
-    this.hasOne(models.Vehicle, { foreignKey: 'chassis' });
+    this.belongsTo(models.Vehicle, { foreignKey: 'chassis' });
   }
 }
