@@ -11,7 +11,7 @@ export default class Sale extends Model {
             msg: 'Valor de compra inválido.',
           },
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },
@@ -23,7 +23,7 @@ export default class Sale extends Model {
             msg: 'Comissão inválida.',
           },
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },

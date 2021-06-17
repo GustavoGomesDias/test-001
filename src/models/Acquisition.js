@@ -8,7 +8,7 @@ export default class Acquisition extends Model {
         defaultValue: '',
         validate: {
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },
@@ -18,17 +18,17 @@ export default class Acquisition extends Model {
         defaultValue: '',
         validate: {
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },
 
       manufacture_year: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         defaultValue: '',
         validate: {
-          isDate: {
-            msg: 'Data inválida.',
+          notEmpty: {
+            msg: 'Valor requerido.',
           },
         },
       },
@@ -48,7 +48,7 @@ export default class Acquisition extends Model {
         defaultValue: '',
         validate: {
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },
@@ -61,7 +61,7 @@ export default class Acquisition extends Model {
             msg: 'A cor deve ter entr 3 e 255 caracteres.',
           },
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },

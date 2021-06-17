@@ -8,6 +8,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { resolve } from 'path';
+import Vehicle from './routes/Vehicle';
 
 const app = express();
 
@@ -30,5 +31,8 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(resolve(__dirname, 'uploads')));
+
+// Routes
+app.use('/', Vehicle);
 
 export default app;

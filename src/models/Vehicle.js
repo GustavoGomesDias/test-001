@@ -8,7 +8,7 @@ export default class Vehicle extends Model {
         defaultValue: '',
         validate: {
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },
@@ -18,7 +18,7 @@ export default class Vehicle extends Model {
         defaultValue: '',
         validate: {
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },
@@ -28,17 +28,17 @@ export default class Vehicle extends Model {
         defaultValue: '',
         validate: {
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },
 
       manufacture_year: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         defaultValue: '',
         validate: {
-          isDate: {
-            msg: 'Data inválida.',
+          notEmpty: {
+            msg: 'Valor requerido.',
           },
         },
       },
@@ -58,7 +58,7 @@ export default class Vehicle extends Model {
         defaultValue: '',
         validate: {
           notEmpty: {
-            msg: 'Valor requirido.',
+            msg: 'Valor requerido.',
           },
         },
       },
