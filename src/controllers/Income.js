@@ -4,13 +4,26 @@ import Sale from '../models/Sale';
 class Income {
   async income(req, res) {
     try {
-      const acquisitionValue = (await Acquisition.findAll())
-        .reduce((acumulator, acquisition) => acumulator + acquisition.price);
+      let acquisitionValue;
+      let saleValue;
+      let commissionValue;
 
-      const saleValue = (await Sale.findAll())
-        .reduce((acumulator, sale) => acumulator + sale.value);
-      const commissionValue = (await Sale.findAll())
-        .reduce((acumulator, sale) => acumulator + sale.commission);
+      const acquisitions = await Acquisition.findAll();
+      const sales = await Sale.findAll();
+
+      if (acquisitions.length === 1) {
+        acquisitionValue = acquisitions[0].price;
+      } else {
+        acquisitionValue = acquisitions.reduce((sun, item) => sun + item.price, 0);
+      }
+
+      if (sales.length === 1) {
+        saleValue = sales[0].value;
+        commissionValue = sales[0].commission;
+      } else {
+        saleValue = sales.reduce((sun, item) => sun + item.value, 0);
+        commissionValue = sales.reduce((sun, item) => sun + item.commission, 0);
+      }
 
       const income = saleValue - acquisitionValue;
 

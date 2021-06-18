@@ -12,8 +12,9 @@ class Sale {
 
   async findByChassis(req, res) {
     try {
-      const { chassis } = req.params;
-      const sale = await SaleModel.findAll({ where: { chassis } });
+      const { acquisition_id } = req.params;
+      const sale = await SaleModel.findAll({ where: { acquisition_id } });
+
       return res.status(200).json(sale[0]);
     } catch (err) {
       return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
@@ -22,15 +23,15 @@ class Sale {
 
   async create(req, res) {
     try {
-      const { value, chassis } = req.body;
-      const result = await SaleModel.findAll({ where: { chassis } });
+      const { value, acquisition_id } = req.body;
+      const result = await SaleModel.findAll({ where: { acquisition_id } });
 
       if (result[0]) {
         return res.status(400).json({ message: 'Chassi já cadastrado.' });
       }
 
       const commission = parseFloat(value) * 0.1;
-      const sale = await SaleModel.create({ value, commission, chassis });
+      const sale = await SaleModel.create({ value, commission, acquisition_id });
       return res.status(200).json(sale);
     } catch (err) {
       console.log(err);

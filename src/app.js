@@ -8,9 +8,9 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { resolve } from 'path';
-import Vehicle from './routes/Vehicle';
 import Sale from './routes/Sale';
 import Acquisition from './routes/Acquisition';
+import Income from './routes/Income';
 
 const app = express();
 
@@ -35,8 +35,8 @@ app.use(express.json());
 app.use(express.static(resolve(__dirname, 'uploads')));
 
 // Routes
-app.use('/', Vehicle);
 app.use('/', Sale);
 app.use('/', Acquisition);
+app.use('/', Income);
 
 export default app;

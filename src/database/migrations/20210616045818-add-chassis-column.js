@@ -1,22 +1,11 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('sales', 'chassis', {
-      type: Sequelize.STRING,
+    await queryInterface.addColumn('sales', 'acquisition_id', {
+      type: Sequelize.INTEGER,
       allowNull: false,
       references: {
-        model: 'vehicles',
-        key: 'chassis',
-      },
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE',
-    });
-
-    await queryInterface.addColumn('acquisitions', 'chassis', {
-      type: Sequelize.STRING,
-      allowNull: false,
-      references: {
-        model: 'vehicles',
-        key: 'chassis',
+        model: 'acquisitions',
+        key: 'id',
       },
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE',

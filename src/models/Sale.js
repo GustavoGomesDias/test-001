@@ -34,6 +34,6 @@ export default class Sale extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Vehicle, { foreignKey: 'chassis' });
+    this.belongsTo(models.Acquisition, { foreignKey: 'acquisition_id' });
   }
 }

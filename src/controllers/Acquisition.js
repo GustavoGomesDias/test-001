@@ -3,7 +3,11 @@ import AcquisitionModel from '../models/Acquisition';
 class Acquisition {
   async findAll(req, res) {
     try {
-      const acquisitions = await AcquisitionModel.findAll();
+      const acquisitions = await AcquisitionModel.findAll({
+        attributes: [
+          'id', 'chassis', 'model', 'brand', 'manufacture_year', 'plate', 'color', 'price', 'created_at',
+        ],
+      });
       return res.status(200).json(acquisitions);
     } catch (err) {
       return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
@@ -13,8 +17,17 @@ class Acquisition {
   async findByChassis(req, res) {
     try {
       const { chassis } = req.params;
-      const acquisition = await AcquisitionModel.findAll({ where: { chassis } });
-      return res.status(200).json(acquisition[0]);
+      const vehicle = await AcquisitionModel.findAll({ where: { chassis } });
+      return res.status(200).json(vehicle[0]);
+    } catch (err) {
+      return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
+    }
+  }
+
+  async findByAvailable(req, res) {
+    try {
+      const vehicles = await AcquisitionModel.findAll({ where: { available: true } });
+      return res.status(200).json(vehicles);
     } catch (err) {
       return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
     }
@@ -22,7 +35,6 @@ class Acquisition {
 
   async create(req, res) {
     try {
-      console.log(req.body);
       const result = await AcquisitionModel.findAll({ where: { chassis: req.body.chassis } });
 
       if (result[0]) {

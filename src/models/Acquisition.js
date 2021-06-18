@@ -3,6 +3,16 @@ import Sequelize, { Model } from 'sequelize';
 export default class Acquisition extends Model {
   static init(sequelize) {
     super.init({
+      chassis: {
+        type: Sequelize.STRING,
+        defaultValue: '',
+        primaryKey: true,
+        validate: {
+          notEmpty: {
+            msg: 'Valor requerido.',
+          },
+        },
+      },
       model: {
         type: Sequelize.STRING,
         defaultValue: '',
@@ -67,14 +77,15 @@ export default class Acquisition extends Model {
         },
       },
 
+      available: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
+      },
+
     }, {
       sequelize,
     });
 
     return this;
-  }
-
-  static associate(models) {
-    this.belongsTo(models.Vehicle, { foreignKey: 'chassis' });
   }
 }
