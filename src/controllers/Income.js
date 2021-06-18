@@ -8,24 +8,31 @@ class Income {
       let saleValue;
       let commissionValue;
 
+      const date = new Date();
+      const month = date.getMonth();
+
       const acquisitions = await Acquisition.findAll();
       const sales = await Sale.findAll();
 
-      if (acquisitions.length === 1) {
+      if (acquisitions.length === 1 && acquisitions[0].created_at.getMonth() === month) {
         acquisitionValue = acquisitions[0].price;
       } else {
-        acquisitionValue = acquisitions.reduce((sun, item) => sun + item.price, 0);
+        acquisitionValue = acquisitions.reduce((sun, item) => (
+          acquisitions[0].created_at.getMonth() === month ? sun + item.price : sun
+        ), 0);
       }
 
-      if (sales.length === 1) {
+      if (sales.length === 1 && sales[0].created_at.getMonth() === month) {
         saleValue = sales[0].value;
         commissionValue = sales[0].commission;
       } else {
-        saleValue = sales.reduce((sun, item) => sun + item.value, 0);
-        commissionValue = sales.reduce((sun, item) => sun + item.commission, 0);
+        saleValue = sales.reduce((sun, item) => (sales[0].created_at.getMonth() === month
+          ? sun + item.value : sun), 0);
+        commissionValue = sales.reduce((sun, item) => (sales[0].created_at.getMonth() === month
+          ? sun + item.commission : sun), 0);
       }
 
-      const income = saleValue - acquisitionValue;
+      const income = saleValue - (acquisitionValue + commissionValue);
 
       return res.status(200).json({
         acquisitions: acquisitionValue,
