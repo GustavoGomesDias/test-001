@@ -37,8 +37,9 @@ export default class Acquisition extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
         validate: {
-          isLicensePlate: {
-            msg: 'Placa inválida.',
+          is: {
+            args: [/^[a-zA-Z]{3}[0-9]{4}$/],
+            msg: 'Placa inválida',
           },
         },
       },

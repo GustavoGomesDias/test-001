@@ -2,8 +2,9 @@ import Sequelize from 'sequelize';
 import database from '../config/database';
 import Sale from '../models/Sale';
 import Vehicle from '../models/Vehicle';
+import Acquisition from '../models/Acquisition';
 
-const models = [Vehicle, Sale];
+const models = [Vehicle, Sale, Acquisition];
 
 const connection = new Sequelize(database);
 

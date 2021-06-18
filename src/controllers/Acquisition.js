@@ -1,10 +1,10 @@
-import SaleModel from '../models/Sale';
+import AcquisitionModel from '../models/Acquisition';
 
-class Sale {
+class Acquisition {
   async findAll(req, res) {
     try {
-      const sales = await SaleModel.findAll();
-      return res.status(200).json(sales);
+      const acquisitions = await AcquisitionModel.findAll();
+      return res.status(200).json(acquisitions);
     } catch (err) {
       return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
     }
@@ -13,8 +13,8 @@ class Sale {
   async findByChassis(req, res) {
     try {
       const { chassis } = req.params;
-      const sale = await SaleModel.findAll({ where: { chassis } });
-      return res.status(200).json(sale[0]);
+      const acquisition = await AcquisitionModel.findAll({ where: { chassis } });
+      return res.status(200).json(acquisition[0]);
     } catch (err) {
       return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
     }
@@ -22,16 +22,15 @@ class Sale {
 
   async create(req, res) {
     try {
-      const { value, chassis } = req.body;
-      const result = await SaleModel.findAll({ where: { chassis } });
+      console.log(req.body);
+      const result = await AcquisitionModel.findAll({ where: { chassis: req.body.chassis } });
 
       if (result[0]) {
         return res.status(400).json({ message: 'Chassi já cadastrado.' });
       }
 
-      const commission = parseFloat(value) * 0.1;
-      const sale = await SaleModel.create({ value, commission, chassis });
-      return res.status(200).json(sale);
+      const acquisition = await AcquisitionModel.create(req.body);
+      return res.status(200).json(acquisition);
     } catch (err) {
       console.log(err);
       return res.status(400).json({
@@ -42,15 +41,13 @@ class Sale {
 
   async edit(req, res) {
     try {
-      const sale = await SaleModel.findByPk(req.params.id);
+      const acquisisiton = await AcquisitionModel.findByPk(req.params.id);
 
-      if (!sale) {
+      if (!acquisisiton) {
         return res.status(401).json({ message: 'Venda não encontrada.' });
       }
-      const { value, chassis } = req.body;
-      const commission = parseFloat(value) * 0.1;
 
-      const newSale = await sale.update({ value, commission, chassis });
+      const newSale = await acquisisiton.update(req.body);
       return res.status(200).json(newSale);
     } catch (err) {
       console.log(err);
@@ -63,15 +60,15 @@ class Sale {
   async delete(req, res) {
     try {
       const { id } = req.params;
-      const sale = await SaleModel.findByPk(id);
+      const acquisisiton = await AcquisitionModel.findByPk(id);
 
-      if (!sale) {
+      if (!acquisisiton) {
         return res.status(401).json({
           message: 'Veículo não existe.',
         });
       }
 
-      await sale.destroy();
+      await acquisisiton.destroy();
       return res.json({ message: 'Veículo deletado.' });
     } catch (err) {
       return res.status(400).json({
@@ -81,4 +78,4 @@ class Sale {
   }
 }
 
-export default new Sale();
+export default new Acquisition();
