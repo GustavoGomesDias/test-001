@@ -9,6 +9,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { resolve } from 'path';
 import Vehicle from './routes/Vehicle';
+import Sale from './routes/Sale';
 
 const app = express();
 
@@ -34,5 +35,6 @@ app.use(express.static(resolve(__dirname, 'uploads')));
 
 // Routes
 app.use('/', Vehicle);
+app.use('/', Sale);
 
 export default app;

@@ -22,10 +22,13 @@ class Vehicle {
   async findByChassis(req, res) {
     try {
       const { chassis } = req.params;
-      const vehicles = await VehicleModel.finByPK(chassis);
+      const vehicles = await VehicleModel.findByPk(chassis);
       return res.status(200).json(vehicles);
     } catch (err) {
-      return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
+      console.log(err);
+      return res.status(400).json({
+        errors: err.errors.map((e) => e.message),
+      });
     }
   }
 
