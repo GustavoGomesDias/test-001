@@ -19,7 +19,7 @@ module.exports = {
       },
 
       manufacture_year: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false,
       },
 
@@ -31,17 +31,6 @@ module.exports = {
       color: {
         type: Sequelize.STRING,
         allowNull: false,
-      },
-
-      chassis: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'vehicles',
-          key: 'chassis',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
       },
 
       price: {

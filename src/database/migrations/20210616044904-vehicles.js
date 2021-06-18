@@ -1,6 +1,12 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('vehicles', {
+      id: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: 'chassis',
+      },
+
       chassis: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -18,7 +24,7 @@ module.exports = {
       },
 
       manufacture_year: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false,
       },
 

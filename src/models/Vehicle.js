@@ -6,6 +6,7 @@ export default class Vehicle extends Model {
       chassis: {
         type: Sequelize.STRING,
         defaultValue: '',
+        primaryKey: true,
         validate: {
           notEmpty: {
             msg: 'Valor requerido.',

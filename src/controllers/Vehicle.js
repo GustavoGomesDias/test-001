@@ -1,7 +1,5 @@
 import VehicleModel from '../models/Vehicle';
 
-VehicleModel.removeAttribute('id');
-
 class Vehicle {
   async findAll(req, res) {
     try {
@@ -24,7 +22,7 @@ class Vehicle {
   async findByChassis(req, res) {
     try {
       const { chassis } = req.params;
-      const vehicles = await VehicleModel.findAll({ where: { chassis } });
+      const vehicles = await VehicleModel.finByPK(chassis);
       return res.status(200).json(vehicles);
     } catch (err) {
       return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
@@ -33,7 +31,8 @@ class Vehicle {
 
   async create(req, res) {
     try {
-      const result = await VehicleModel.findAll({ where: { chassis: req.body.chassis } });
+      const result = await VehicleModel.findByPk(req.body.chassis);
+      console.log(result);
       if (result) {
         return res.status(400).json({ message: 'Chassi já existe.' });
       }
@@ -50,7 +49,7 @@ class Vehicle {
   async edit(req, res) {
     try {
       const { chassis } = req.params;
-      const vehicle = await VehicleModel.findAll({ where: { chassis } });
+      const vehicle = await VehicleModel.findByPk(chassis);
 
       if (!vehicle) {
         return res.status(401).json({ message: 'Veículo não existe.' });
@@ -59,6 +58,7 @@ class Vehicle {
       const newVehicle = await vehicle.update(req.body);
       return res.status(200).json(newVehicle);
     } catch (err) {
+      console.log(err);
       return res.status(400).json({
         errors: err.errors.map((e) => e.message),
       });
@@ -67,7 +67,8 @@ class Vehicle {
 
   async delete(req, res) {
     try {
-      const vehicle = await VehicleModel.findByPk(req.params.chassis);
+      const { chassis } = req.params;
+      const vehicle = await VehicleModel.findByPk(chassis);
 
       if (!vehicle) {
         return res.status(401).json({
