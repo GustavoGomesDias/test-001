@@ -15,7 +15,7 @@ import Income from './routes/Income';
 const app = express();
 
 const whiteList = [
-  'http://localhost:4444',
+  'http://localhost:3000',
 ];
 
 const corsOptions = {
