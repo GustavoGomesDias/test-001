@@ -6,7 +6,6 @@ export default class Acquisition extends Model {
       chassis: {
         type: Sequelize.STRING,
         defaultValue: '',
-        primaryKey: true,
         validate: {
           notEmpty: {
             msg: 'Valor requerido.',
