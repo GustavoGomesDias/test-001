@@ -5,7 +5,7 @@ class Acquisition {
     try {
       const acquisitions = await AcquisitionModel.findAll({
         attributes: [
-          'id', 'chassis', 'model', 'brand', 'manufacture_year', 'plate', 'color', 'price', 'created_at',
+          'id', 'chassis', 'model', 'brand', 'manufacture_year', 'plate', 'available', 'color', 'price', 'created_at',
         ],
       });
       return res.status(200).json(acquisitions);
