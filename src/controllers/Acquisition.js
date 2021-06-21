@@ -14,25 +14,6 @@ class Acquisition {
     }
   }
 
-  async findByChassis(req, res) {
-    try {
-      const { chassis } = req.params;
-      const vehicle = await AcquisitionModel.findAll({ where: { chassis } });
-      return res.status(200).json(vehicle[0]);
-    } catch (err) {
-      return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
-    }
-  }
-
-  async findByAvailable(req, res) {
-    try {
-      const vehicles = await AcquisitionModel.findAll({ where: { available: true } });
-      return res.status(200).json(vehicles);
-    } catch (err) {
-      return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
-    }
-  }
-
   async create(req, res) {
     try {
       const result = await AcquisitionModel.findAll({ where: { chassis: req.body.chassis } });
