@@ -7,6 +7,7 @@ class Acquisition {
         attributes: [
           'id', 'chassis', 'model', 'brand', 'manufacture_year', 'plate', 'available', 'color', 'price', 'created_at',
         ],
+        order: [['updated_at', 'DESC']],
       });
       return res.status(200).json(acquisitions);
     } catch (err) {

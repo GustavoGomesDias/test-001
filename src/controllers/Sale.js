@@ -6,6 +6,7 @@ class Sale {
     try {
       const sales = await SaleModel.findAll({
         include: AcquisitionModel,
+        order: [['updated_at', 'DESC']],
       });
       return res.status(200).json(sales);
     } catch (err) {

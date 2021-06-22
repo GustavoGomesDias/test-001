@@ -8,28 +8,31 @@ class Income {
       let saleValue;
       let commissionValue;
 
-      const date = new Date();
-      const month = date.getMonth();
+      const currentMonth = new Date().getMonth() + 1;
 
       const acquisitions = await Acquisition.findAll();
       const sales = await Sale.findAll();
 
-      if (acquisitions.length === 1 && acquisitions[0].created_at.getMonth() === month) {
+      if (acquisitions.length === 1
+        && (new Date(acquisitions[0].created_at).getMonth() + 1) === currentMonth) {
         acquisitionValue = acquisitions[0].price;
       } else {
         acquisitionValue = acquisitions.reduce((sun, item) => (
-          acquisitions[0].created_at.getMonth() === month ? sun + item.price : sun
+          (new Date(acquisitions[0].created_at).getMonth() + 1) === currentMonth
+            ? sun + item.price : sun
         ), 0);
       }
 
-      if (sales.length === 1 && sales[0].created_at.getMonth() === month) {
+      if (sales.length === 1 && (new Date(sales[0].created_at).getMonth() + 1) === currentMonth) {
         saleValue = sales[0].value;
         commissionValue = sales[0].commission;
       } else {
-        saleValue = sales.reduce((sun, item) => (sales[0].created_at.getMonth() === month
-          ? sun + item.value : sun), 0);
-        commissionValue = sales.reduce((sun, item) => (sales[0].created_at.getMonth() === month
-          ? sun + item.commission : sun), 0);
+        saleValue = sales.reduce((sun, item) => (
+          new Date(sales[0].created_at).getMonth() + 1 === currentMonth
+            ? sun + item.value : sun), 0);
+        commissionValue = sales.reduce((sun, item) => (
+          new Date(sales[0].created_at).getMonth() + 1 === currentMonth
+            ? sun + item.commission : sun), 0);
       }
 
       const income = saleValue - (acquisitionValue + commissionValue);
