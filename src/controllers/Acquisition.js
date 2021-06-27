@@ -17,13 +17,6 @@ class Acquisition {
 
   async create(req, res) {
     try {
-      const verifyChassi = await AcquisitionModel.findAll({ where: { chassis: req.body.chassis } });
-      const verifyPlate = await AcquisitionModel.findAll({ where: { plate: req.body.plate } });
-
-      if (verifyChassi[0] || verifyPlate[0]) {
-        return res.status(400).json({ message: 'Chassi ou placa já cadastrado.' });
-      }
-
       const acquisition = await AcquisitionModel.create(req.body);
       return res.status(200).json(acquisition);
     } catch (err) {

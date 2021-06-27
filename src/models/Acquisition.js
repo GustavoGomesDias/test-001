@@ -6,6 +6,9 @@ export default class Acquisition extends Model {
       chassis: {
         type: Sequelize.STRING,
         defaultValue: '',
+        unique: {
+          msg: 'Chassi já cadastrado.',
+        },
         validate: {
           notEmpty: {
             msg: 'Valor requerido.',
@@ -45,6 +48,10 @@ export default class Acquisition extends Model {
       plate: {
         type: Sequelize.STRING,
         defaultValue: '',
+        unique: {
+          args: true,
+          msg: 'Placa já cadastrada.',
+        },
         validate: {
           is: {
             args: [/^[a-zA-Z]{3}[0-9]{4}$/],
