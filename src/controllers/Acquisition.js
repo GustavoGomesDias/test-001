@@ -1,4 +1,4 @@
-import AcquisitionModel from '../models/Acquisition';
+import AcquisitionModel from '../models/Acquisition.js';
 
 class Acquisition {
   async findAll(req, res) {

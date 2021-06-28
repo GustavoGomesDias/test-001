@@ -3,14 +3,14 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-import './database';
+import './database/index.js';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { resolve } from 'path';
-import Sale from './routes/Sale';
-import Acquisition from './routes/Acquisition';
-import Income from './routes/Income';
+import Sale from './routes/Sale.js';
+import Acquisition from './routes/Acquisition.js';
+import Income from './routes/Income.js';
 
 const app = express();
 
@@ -32,11 +32,13 @@ app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(resolve(__dirname, 'uploads')));
 
 // Routes
 app.use('/', Sale);
 app.use('/', Acquisition);
 app.use('/', Income);
 
-export default app;
+app.listen(3001, () => {
+  console.log(`Server is running at 3001`);
+  console.log(`CTRL + click in http://localhost:3001`);
+});

@@ -1,5 +1,5 @@
-import Acquisition from '../models/Acquisition';
-import Sale from '../models/Sale';
+import Acquisition from '../models/Acquisition.js';
+import Sale from '../models/Sale.js';
 
 class Income {
   async income(req, res) {

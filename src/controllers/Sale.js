@@ -1,5 +1,5 @@
-import SaleModel from '../models/Sale';
-import AcquisitionModel from '../models/Acquisition';
+import SaleModel from '../models/Sale.js';
+import AcquisitionModel from '../models/Acquisition.js';
 
 class Sale {
   async findAll(req, res) {

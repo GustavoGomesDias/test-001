@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import Acquisition from '../controllers/Acquisition';
+import Acquisition from '../controllers/Acquisition.js';
 
 const router = Router();
 
