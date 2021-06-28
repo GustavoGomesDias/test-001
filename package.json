@@ -2,13 +2,13 @@
   "name": "test-001",
   "version": "1.0.0",
   "description": "O intuito deste exercício é validar o máximo de conhecimento que você possui.",
-  "main": "./src/server.js",
+  "main": "server.js",
   "type": "module",
   "engines": {
     "node": "14.x"
   },
   "scripts": {
-    "start": "node ./src/server.js",
+    "start": "node server.js",
     "dev": "nodemon ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
