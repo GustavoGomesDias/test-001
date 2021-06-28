@@ -4,7 +4,7 @@
   "description": "O intuito deste exercício é validar o máximo de conhecimento que você possui.",
   "main": "./src/server.js",
   "engines": {
-    "node": "14.x",
+    "node": "14.x"
   },
   "scripts": {
     "start": "node ./src/server.js",
