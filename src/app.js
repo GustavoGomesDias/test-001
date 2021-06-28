@@ -38,7 +38,9 @@ app.use('/', Sale);
 app.use('/', Acquisition);
 app.use('/', Income);
 
-app.listen(3001, () => {
+const port = process.env.PORT || 3001
+
+app.listen(port, () => {
   console.log(`Server is running at 3001`);
   console.log(`CTRL + click in http://localhost:3001`);
 });
