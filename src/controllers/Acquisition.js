@@ -11,6 +11,7 @@ class Acquisition {
       });
       return res.status(200).json(acquisitions);
     } catch (err) {
+      console.log(err);
       return res.status(500).json({ message: 'Erro no servidor, tente novamente mais tarde.' });
     }
   }

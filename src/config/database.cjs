@@ -2,12 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   dialect: 'postgres',
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
+  connectionString: process.env.DATABASE_URL,
   host: process.env.DATABASE_HOST,
   port: process.env.DATABASE_PORT,
   username: process.env.DATABASE_USERNAME,
@@ -21,7 +16,14 @@ module.exports = {
     updatedAt: 'updated_at',
   },
   dialectOptions: {
-    timezone: '-03:00',
+    useUTC: false,
+    dateStrings: true,
+    typeCast: true,
+    timezone: 'America/Sao_Paulo',
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
   },
-  timezone: '-03:00',
+  timezone: 'America/Sao_Paulo',
 };
