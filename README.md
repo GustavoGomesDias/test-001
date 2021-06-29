@@ -11,7 +11,7 @@ Para entender mais sobre API, entre na documentação dela, que foi gerado usand
 ## 📕 Sumário
 1. [Tecnologias usadadas](https://github.com/GustavoGomesDias/test-001#1--tecnologias-usadas)
 2. [Para rodar o projeto LOCALMENTE](https://github.com/GustavoGomesDias/test-001#2--para-rodar-o-projeto-localmente)
-3. [Para fazer deploy no Heroku](https://github.com/GustavoGomesDias/test-001#3-para-fazer-deploy-no-heroku)
+3. [Para fazer deploy no Heroku](https://github.com/GustavoGomesDias/test-001#3--para-fazer-deploy-no-heroku)
 4. [Configurar variáveis de ambiente](https://github.com/GustavoGomesDias/test-001#4-vari%C3%A1veis-de-ambiente-necess%C3%A1rio-no-heroku-tamb%C3%A9m)
 
 ## 1. 💻 Tecnologias usadas
