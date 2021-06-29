@@ -1,0 +1,290 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a Job API",
+    "version": "1.0.0",
+    "title": "Simple Job API",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "apivehicles.herokuapp.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "acquisitions",
+      "description": "Regarding vehicle purchases"
+    },
+    {
+      "name": "sales",
+      "description": "Regarding the sale of vehicles"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/acquisition": {
+      "get": {
+        "tags": [
+          "acquisitions"
+        ],
+        "summary": "search purchased vehicles",
+        "description": "You search for all vehicles in the system\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "search results matching criteria",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Acquisition"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "acquisitions"
+        ],
+        "summary": "add vehicle purchase",
+        "description": "Adds a vehicle acquisition to the system",
+        "operationId": "create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "acquisition",
+            "description": "Vehicle purchase to add",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Acquisition"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "acquisition created"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/acquisition/{id}": {
+      "put": {
+        "tags": [
+          "acquisitions"
+        ],
+        "summary": "edit existing vehicle acquisition",
+        "description": "Edit existing vehicle purchase",
+        "operationId": "edit",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Acquisition ID.",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "acquisition",
+            "description": "Vehicle purchase to edit",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Acquisition"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "acquisition edited"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "acquisitions"
+        ],
+        "summary": "Deletes the Acquisition with the specified ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Acquisition ID.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "acquisition deleted"
+          },
+          "500": {
+            "description": "internal error"
+          }
+        }
+      }
+    },
+    "/sales": {
+      "get": {
+        "tags": [
+          "sales"
+        ],
+        "summary": "search vehicle sales",
+        "description": "You search for all vehicle sales\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "search results matching criteria",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Sale"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Acquisition": {
+      "type": "object",
+      "required": [
+        "available",
+        "brand",
+        "chassis",
+        "color",
+        "created_at",
+        "id",
+        "manufacture_year",
+        "model",
+        "plate",
+        "price",
+        "updated_at"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1
+        },
+        "chassis": {
+          "type": "string",
+          "example": "333456789ABCDGGGH"
+        },
+        "model": {
+          "type": "string",
+          "example": "Ferrari Enzo"
+        },
+        "brand": {
+          "type": "string",
+          "example": "Ferrari"
+        },
+        "manufacture_year": {
+          "type": "string",
+          "example": "2000"
+        },
+        "plate": {
+          "type": "string",
+          "example": "ABC1234"
+        },
+        "color": {
+          "type": "string",
+          "example": "red"
+        },
+        "price": {
+          "type": "number",
+          "format": "double",
+          "example": 22000.53
+        },
+        "available": {
+          "type": "boolean",
+          "example": true
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-08-29T09:12:33.001+0000"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-08-29T09:12:33.001+0000"
+        }
+      }
+    },
+    "Sale": {
+      "type": "object",
+      "required": [
+        "acquisition_id",
+        "commission",
+        "created_at",
+        "id",
+        "updated_at",
+        "value"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1
+        },
+        "acquisition_id": {
+          "$ref": "#/definitions/Acquisition"
+        },
+        "value": {
+          "type": "number",
+          "format": "double",
+          "example": 22000.53
+        },
+        "commission": {
+          "type": "number",
+          "format": "double",
+          "example": 22000.53
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-08-29T09:12:33.001+0000"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-08-29T09:12:33.001+0000"
+        }
+      }
+    }
+  }
+}
