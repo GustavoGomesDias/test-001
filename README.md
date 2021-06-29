@@ -2,12 +2,17 @@
 
 Esse é o repositório backend do teste para Dev Jr proposto pela [Devnology](https://devnology.com.br/).
 
+Para entender mais sobre API, entre na documentação dela, que foi gerado usando o [Swagger](https://app.swaggerhub.com/search)
+
+➡ [Documentação online](https://gustavogomesdias.github.io/test-001/) que foi gerada pelo Swagger e levemente modificada por mim (visualmente)
+
+➡ [JSON](https://github.com/GustavoGomesDias/test-001/blob/main/documentaion.json) com a documentação
+
 ## 📕 Sumário
-1. [Preview](https://github.com/GustavoGomesDias/<nome_repo>t#1--preview)
-2. [O que eu aprendi de novo nesse projeto](https://github.com/GustavoGomesDias/<nome_repo>#2--o-que-eu-aprendi-de-novo-nesse-projeto)
-3. [Tecnologias usadas](https://github.com/GustavoGomesDias/<nome_repo>#3--tecnologias-usadas)
-4. [Para rodar](https://github.com/GustavoGomesDias/<nome_repo>#4--para-rodar-o-projeto)
-5. [Documentação](https://github.com/GustavoGomesDias/<nome_repo>#4--documenta%C3%A7%C3%A3o)
+1. [Tecnologias usadadas](https://github.com/GustavoGomesDias/test-001#1--tecnologias-usadas)
+2. [Para rodar o projeto LOCALMENTE](https://github.com/GustavoGomesDias/test-001#2--para-rodar-o-projeto-localmente)
+3. [Para fazer deploy no Heroku](https://github.com/GustavoGomesDias/test-001#3--para-fazer-deploy-no-heroku)
+4. [Configurar variáveis de ambiente](https://github.com/GustavoGomesDias/test-001#4-vari%C3%A1veis-de-ambiente-necess%C3%A1rio-no-heroku-tamb%C3%A9m)
 
 ## 1. 💻 Tecnologias usadas
 * NodeJS;
@@ -17,13 +22,14 @@ Esse é o repositório backend do teste para Dev Jr proposto pela [Devnology](ht
   * Sequelize-cli;
   * Pg
   * Pg HStore
+* Swagger
 * ESLint (AirBnB)
 * Nodemon
 * Cors e Helmet;
 
 Existem dois bancos de dados por conta de eu ter começado usando o MySQL, mas tive que trocar para o Postgre para poder usar o Heroku;
 
-## 4. 🎉 Para rodar o projeto LOCALMENTE
+## 2. 🎉 Para rodar o projeto LOCALMENTE
 1. Clone o repositório e navegue até a pasta dele:
 
 ```
@@ -79,10 +85,12 @@ Por fim, infelizmente eu ainda não consegui fazer o Postgre retornar o valor ex
 
 ```
 git reset --hard f36ecde953c21e02a8bf6dde601722692d4e4111
+// Caso você tenha queira commitar em um repo seu, execute o comadno abaixo para forçar o push
+git push -f origin main
 ```
 Com esse comando o branch vai direto para um commit antes de eu começar a configurar o Postgre e o deploy no Heroku.
 
-## 5. 🚀 Para fazer deploy no Heroku
+## 3. 🚀 Para fazer deploy no Heroku
 Motivo pelo qual eu escolhi o Heroku: Eu escolhi o Heroku por conta dele não precisar de cartão de crédito e por disponibilizar um banco de dados grátis, motivo pelo qual eu troquei o dialéto do banco também.
 
 #### OBS.: Não execute o passo 3 da seção [Para rodar LOCALMENTE](url)
@@ -193,7 +201,7 @@ PGSSLMODE=no-verify npx sequelize-cli --url $DATABASE_URL db:migrate
 
 17. Existem mais funcionalidades, consute o [guia do Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) para mais.
 
-## 6. Variáveis de Ambiente (necessário no Heroku também)
+## 4. Variáveis de Ambiente (necessário no Heroku também)
 1. Clique no seu projeto na dashboard do Heroku e vá até Settings.
 2. Em Settigns, vá até Config Vars e clique em Reveal Config Vars:
 <img src="https://drive.google.com/uc?export=view&id=1bCYfm4BwPrn-wW2HkX4Ss924XSAi0Y99" width="600px;" alt="Profile"/>
@@ -206,7 +214,6 @@ PGSSLMODE=no-verify npx sequelize-cli --url $DATABASE_URL db:migrate
 - ```DATABASE_URL``` => Isso é só para uso de SSL, logo, só serve para o Heroku, localmente não pe necessário.
 - ```DATABASE_PORT``` => Cada dialéto tem uma porta específica onde ele é executado.
 
-## 7. 📖 Documentação
 
 ## Autor
 <table>
