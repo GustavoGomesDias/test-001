@@ -532,44 +532,46 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
-  "acquisition_id" : {
-    "color" : "red",
-    "updated_at" : "2016-08-29T09:12:33.001Z",
-    "price" : 22000.53,
-    "available" : true,
-    "manufacture_year" : "2000",
-    "created_at" : "2016-08-29T09:12:33.001Z",
-    "model" : "Ferrari Enzo",
-    "plate" : "ABC1234",
-    "id" : 1,
-    "chassis" : "333456789ABCDGGGH",
-    "brand" : "Ferrari",
-  },
-  "updated_at" : "2016-08-29T09:12:33.001Z",
-  "created_at" : "2016-08-29T09:12:33.001Z",
-  "commission" : 22000.53,
-  "id" : 1,
-  "value" : 22000.53
-}, {
-  "acquisition_id" : {
-    "color" : "red",
-    "updated_at" : "2016-08-29T09:12:33.001Z",
-    "price" : 22000.53,
-    "available" : true,
-    "manufacture_year" : "2000",
-    "created_at" : "2016-08-29T09:12:33.001Z",
-    "model" : "Ferrari Enzo",
-    "plate" : "ABC1234",
-    "id" : 1,
-    "chassis" : "333456789ABCDGGGH",
-    "brand" : "Ferrari",
-  },
-  "updated_at" : "2016-08-29T09:12:33.001Z",
-  "created_at" : "2016-08-29T09:12:33.001Z",
-  "commission" : 22000.53,
-  "id" : 1,
-  "value" : 22000.53
-} ]</code></pre>
+      "acquisition_id" : 1
+      "updated_at" : "2016-08-29T09:12:33.001Z",
+      "created_at" : "2016-08-29T09:12:33.001Z",
+      "commission" : 22000.53,
+      "id" : 1,
+      "value" : 22000.53,
+      "Acquisition": {
+        "color" : "red",
+        "updated_at" : "2016-08-29T09:12:33.001Z",
+        "price" : 22000.53,
+        "available" : true,
+        "manufacture_year" : "2000",
+        "created_at" : "2016-08-29T09:12:33.001Z",
+        "model" : "Ferrari Enzo",
+        "plate" : "ABC1234",
+        "id" : 1,
+        "chassis" : "333456789ABCDGGGH",
+        "brand" : "Ferrari",
+      },
+    }, {
+      "acquisition_id" : 1
+      "updated_at" : "2016-08-29T09:12:33.001Z",
+      "created_at" : "2016-08-29T09:12:33.001Z",
+      "commission" : 22000.53,
+      "id" : 1,
+      "value" : 22000.53,
+      "Acquisition": {
+        "color" : "red",
+        "updated_at" : "2016-08-29T09:12:33.001Z",
+        "price" : 22000.53,
+        "available" : true,
+        "manufacture_year" : "2000",
+        "created_at" : "2016-08-29T09:12:33.001Z",
+        "model" : "Ferrari Enzo",
+        "plate" : "ABC1234",
+        "id" : 1,
+        "chassis" : "333456789ABCDGGGH",
+        "brand" : "Ferrari",
+      },
+    } ]</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -683,7 +685,7 @@ font-style: italic;
     <h3><a name="Acquisition"><code>Acquisition</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
           <div class="param-desc"><span class="param-type">example: 1</span></div>
 <div class="param">chassis </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
           <div class="param-desc"><span class="param-type">example: 333456789ABCDGGGH</span></div>
@@ -701,9 +703,9 @@ font-style: italic;
           <div class="param-desc"><span class="param-type">example: 22000.53</span></div>
 <div class="param">available </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
           <div class="param-desc"><span class="param-type">example: true</span></div>
-<div class="param">created_at </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
           <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001Z</span></div>
-<div class="param">updated_at </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
           <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001Z</span></div>
     </div>  <!-- field-items -->
   </div>
@@ -711,18 +713,19 @@ font-style: italic;
     <h3><a name="Sale"><code>Sale</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
-      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
           <div class="param-desc"><span class="param-type">example: 1</span></div>
-<div class="param">acquisition_id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">acquisition_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
           <div class="param-desc"><span class="param-type">example: 1</span></div>
 <div class="param">value </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
           <div class="param-desc"><span class="param-type">example: 22000.53</span></div>
-<div class="param">commission </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">commission (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
           <div class="param-desc"><span class="param-type">example: 22000.53</span></div>
-<div class="param">created_at </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
           <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001Z</span></div>
-<div class="param">updated_at </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
           <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001Z</span></div>
+<div class="param">Acquisition (optional)</div><div class="param-desc"><span class="param-type"><a href="#Acquisition">Acquisition</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>

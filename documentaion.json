@@ -186,13 +186,10 @@
         "brand",
         "chassis",
         "color",
-        "created_at",
-        "id",
         "manufacture_year",
         "model",
         "plate",
-        "price",
-        "updated_at"
+        "price"
       ],
       "properties": {
         "id": {
@@ -248,11 +245,6 @@
     "Sale": {
       "type": "object",
       "required": [
-        "acquisition_id",
-        "commission",
-        "created_at",
-        "id",
-        "updated_at",
         "value"
       ],
       "properties": {
@@ -283,6 +275,9 @@
           "type": "string",
           "format": "date-time",
           "example": "2016-08-29T09:12:33.001+0000"
+        },
+        "Acquisition": {
+          "$ref": "#/definitions/Acquisition"
         }
       }
     }
