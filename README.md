@@ -7,6 +7,7 @@ Para entender mais sobre API, entre na documentação dela, que foi gerado usand
 ➡ [Documentação online](https://gustavogomesdias.github.io/test-001/) que foi gerada pelo Swagger e levemente modificada por mim (visualmente)
 
 ➡ [JSON](https://github.com/GustavoGomesDias/test-001/blob/main/documentaion.json) com a documentação
+➡ [Link da API](https://apivehicles.herokuapp.com/acquisition) (status: on)
 
 ## 📕 Sumário
 1. [Tecnologias usadadas](https://github.com/GustavoGomesDias/test-001#1--tecnologias-usadas)
