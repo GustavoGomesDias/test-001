@@ -15,7 +15,6 @@ import Income from './routes/Income.js';
 const app = express();
 
 const whiteList = [
-  'http://localhost:3000',
   'https://test-001-frontend.vercel.app',
 ];
 
