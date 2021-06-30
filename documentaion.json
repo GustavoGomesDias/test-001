@@ -254,7 +254,9 @@
           "example": 1
         },
         "acquisition_id": {
-          "$ref": "#/definitions/Acquisition"
+          "type": "integer",
+          "format": "int64",
+          "example": 1
         },
         "value": {
           "type": "number",

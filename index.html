@@ -190,6 +190,10 @@ font-style: italic;
   <body>
   <h1>Simple Job API</h1>
     <div class="app-desc">This is a Job API</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/</div>
     <div class="license-info">Apache 2.0</div>
     <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
@@ -201,92 +205,23 @@ font-style: italic;
   <div class="method-summary"></div>
   <h4><a href="#Acquisitions">Acquisitions</a></h4>
   <ul>
+  <li><a href="#acquisitionDeleteIdDelete"><code><span class="http-method">delete</span> /acquisition/delete/{id}</code></a></li>
   <li><a href="#acquisitionGet"><code><span class="http-method">get</span> /acquisition</code></a></li>
-  <li><a href="#acquisitionIdDelete"><code><span class="http-method">delete</span> /acquisition/{id}</code></a></li>
   <li><a href="#create"><code><span class="http-method">post</span> /acquisition</code></a></li>
-  <li><a href="#edit"><code><span class="http-method">put</span> /acquisition/{id}</code></a></li>
-  <li><a href="#incomeGet"><code><span class="http-method">get</span> /income</code></a></li>
+  <li><a href="#edit"><code><span class="http-method">put</span> /acquisition/edit/{id}</code></a></li>
   </ul>
   <h4><a href="#Sales">Sales</a></h4>
   <ul>
-  <li><a href="#createSale"><code><span class="http-method">post</span> /sales</code></a></li>
-  <li><a href="#editSale"><code><span class="http-method">put</span> /sales/{id}</code></a></li>
-  <li><a href="#incomeGet"><code><span class="http-method">get</span> /income</code></a></li>
+  <li><a href="#saleDeleteIdDelete"><code><span class="http-method">delete</span> /sale/delete/{id}</code></a></li>
   <li><a href="#salesGet"><code><span class="http-method">get</span> /sales</code></a></li>
-  <li><a href="#salesIdDelete"><code><span class="http-method">delete</span> /sales/{id}</code></a></li>
   </ul>
 
   <h1><a name="Acquisitions">Acquisitions</a></h1>
-  <div class="method"><a name="acquisitionGet"/>
+  <div class="method"><a name="acquisitionDeleteIdDelete"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /acquisition</code></pre></div>
-    <div class="method-summary">search purchased vehicles (<span class="nickname">acquisitionGet</span>)</div>
-    <div class="method-notes">You search for all vehicles in the system</div>
-
-
-
-
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      array[<a href="#Acquisition">Acquisition</a>]
-
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>[ {
-  "color" : "red",
-  "updated_at" : "2016-08-29T09:12:33.001Z",
-  "price" : 22000.53,
-  "available" : true,
-  "manufacture_year" : "2000",
-  "created_at" : "2016-08-29T09:12:33.001Z",
-  "model" : "Ferrari Enzo",
-  "plate" : "ABC1234",
-  "id" : 1,
-  "chassis" : "333456789ABCDGGGH",
-  "brand" : "Ferrari"
-}, {
-  "color" : "red",
-  "updated_at" : "2016-08-29T09:12:33.001Z",
-  "price" : 22000.53,
-  "available" : true,
-  "manufacture_year" : "2000",
-  "created_at" : "2016-08-29T09:12:33.001Z",
-  "model" : "Ferrari Enzo",
-  "plate" : "ABC1234",
-  "id" : 1,
-  "chassis" : "333456789ABCDGGGH",
-  "brand" : "Ferrari"
-} ]</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    search results matching criteria
-
-    <h4 class="field-label">500</h4>
-    Internal Error
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="acquisitionIdDelete"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /acquisition/{id}</code></pre></div>
-    <div class="method-summary">Deletes the Acquisition with the specified ID. (<span class="nickname">acquisitionIdDelete</span>)</div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /acquisition/delete/{id}</code></pre></div>
+    <div class="method-summary">Deletes the Acquisition with the specified ID. (<span class="nickname">acquisitionDeleteIdDelete</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
@@ -315,6 +250,71 @@ font-style: italic;
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="acquisitionGet"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /acquisition</code></pre></div>
+    <div class="method-summary">search purchased vehicles (<span class="nickname">acquisitionGet</span>)</div>
+    <div class="method-notes">You search for all vehicles in the system</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Acquisition">Acquisition</a>]
+
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "color" : "red",
+  "updated_at" : "2016-08-29T09:12:33.001+0000",
+  "price" : 22000.53,
+  "available" : true,
+  "manufacture_year" : "2000",
+  "created_at" : "2016-08-29T09:12:33.001+0000",
+  "model" : "Ferrari Enzo",
+  "plate" : "ABC1234",
+  "id" : 1,
+  "chassis" : "333456789ABCDGGGH",
+  "brand" : "Ferrari"
+}, {
+  "color" : "red",
+  "updated_at" : "2016-08-29T09:12:33.001+0000",
+  "price" : 22000.53,
+  "available" : true,
+  "manufacture_year" : "2000",
+  "created_at" : "2016-08-29T09:12:33.001+0000",
+  "model" : "Ferrari Enzo",
+  "plate" : "ABC1234",
+  "id" : 1,
+  "chassis" : "333456789ABCDGGGH",
+  "brand" : "Ferrari"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    search results matching criteria
+
+    <h4 class="field-label">500</h4>
+    Internal Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -333,7 +333,7 @@ font-style: italic;
     <div class="field-items">
       <div class="param">acquisition <a href="#Acquisition">Acquisition</a> (optional)</div>
 
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Vehicle purchase to added </div>
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Vehicle purchase to add </div>
 
     </div>  <!-- field-items -->
 
@@ -363,7 +363,7 @@ font-style: italic;
   <div class="method"><a name="edit"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /acquisition/{id}</code></pre></div>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /acquisition/edit/{id}</code></pre></div>
     <div class="method-summary">edit existing vehicle acquisition (<span class="nickname">edit</span>)</div>
     <div class="method-notes">Edit existing vehicle purchase</div>
 
@@ -412,57 +412,12 @@ font-style: italic;
   </div> <!-- method -->
   <hr/>
   <h1><a name="Sales">Sales</a></h1>
-  <div class="method"><a name="createSale"/>
+  <div class="method"><a name="saleDeleteIdDelete"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /sales</code></pre></div>
-    <div class="method-summary">add vehicle sale (<span class="nickname">createSale</span>)</div>
-    <div class="method-notes">Adds a vehicle acquisition to the system</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">acquisition <a href="#Sale">Sale</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Vehicle sale to add </div>
-
-    </div>  <!-- field-items -->
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Vehicle sale added
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    invalid input, object invalid
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="editSale"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /sales/{id}</code></pre></div>
-    <div class="method-summary">edit existing vehicle sale (<span class="nickname">editSale</span>)</div>
-    <div class="method-notes">Edit existing vehicle sale</div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /sale/delete/{id}</code></pre></div>
+    <div class="method-summary">Deletes the Sale with the specified ID. (<span class="nickname">saleDeleteIdDelete</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -471,19 +426,7 @@ font-style: italic;
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Acquisition ID. </div>
     </div>  <!-- field-items -->
 
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
 
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">sale <a href="#Sale">Sale</a> (optional)</div>
-
-      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Vehicle sale to edit </div>
-
-    </div>  <!-- field-items -->
 
 
 
@@ -492,19 +435,13 @@ font-style: italic;
     <!--Todo: process Response Object and its headers, schema, examples -->
 
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    vehicle sale edited
+    sale deleted
         <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    invalid input, object invalid
+    <h4 class="field-label">500</h4>
+    internal error
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
@@ -532,46 +469,46 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
-      "acquisition_id" : 1
-      "updated_at" : "2016-08-29T09:12:33.001Z",
-      "created_at" : "2016-08-29T09:12:33.001Z",
-      "commission" : 22000.53,
-      "id" : 1,
-      "value" : 22000.53,
-      "Acquisition": {
-        "color" : "red",
-        "updated_at" : "2016-08-29T09:12:33.001Z",
-        "price" : 22000.53,
-        "available" : true,
-        "manufacture_year" : "2000",
-        "created_at" : "2016-08-29T09:12:33.001Z",
-        "model" : "Ferrari Enzo",
-        "plate" : "ABC1234",
-        "id" : 1,
-        "chassis" : "333456789ABCDGGGH",
-        "brand" : "Ferrari",
-      },
-    }, {
-      "acquisition_id" : 1
-      "updated_at" : "2016-08-29T09:12:33.001Z",
-      "created_at" : "2016-08-29T09:12:33.001Z",
-      "commission" : 22000.53,
-      "id" : 1,
-      "value" : 22000.53,
-      "Acquisition": {
-        "color" : "red",
-        "updated_at" : "2016-08-29T09:12:33.001Z",
-        "price" : 22000.53,
-        "available" : true,
-        "manufacture_year" : "2000",
-        "created_at" : "2016-08-29T09:12:33.001Z",
-        "model" : "Ferrari Enzo",
-        "plate" : "ABC1234",
-        "id" : 1,
-        "chassis" : "333456789ABCDGGGH",
-        "brand" : "Ferrari",
-      },
-    } ]</code></pre>
+  "acquisition_id" : 1,
+  "updated_at" : "2016-08-29T09:12:33.001+0000",
+  "created_at" : "2016-08-29T09:12:33.001+0000",
+  "commission" : 22000.53,
+  "id" : 1,
+  "value" : 22000.53,
+  "Acquisition" : {
+    "color" : "red",
+    "updated_at" : "2016-08-29T09:12:33.001+0000",
+    "price" : 22000.53,
+    "available" : true,
+    "manufacture_year" : "2000",
+    "created_at" : "2016-08-29T09:12:33.001+0000",
+    "model" : "Ferrari Enzo",
+    "plate" : "ABC1234",
+    "id" : 1,
+    "chassis" : "333456789ABCDGGGH",
+    "brand" : "Ferrari"
+  }
+}, {
+  "acquisition_id" : 1,
+  "updated_at" : "2016-08-29T09:12:33.001+0000",
+  "created_at" : "2016-08-29T09:12:33.001+0000",
+  "commission" : 22000.53,
+  "id" : 1,
+  "value" : 22000.53,
+  "Acquisition" : {
+    "color" : "red",
+    "updated_at" : "2016-08-29T09:12:33.001+0000",
+    "price" : 22000.53,
+    "available" : true,
+    "manufacture_year" : "2000",
+    "created_at" : "2016-08-29T09:12:33.001+0000",
+    "model" : "Ferrari Enzo",
+    "plate" : "ABC1234",
+    "id" : 1,
+    "chassis" : "333456789ABCDGGGH",
+    "brand" : "Ferrari"
+  }
+} ]</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -584,88 +521,6 @@ font-style: italic;
     <h4 class="field-label">200</h4>
     search results matching criteria
 
-    <h4 class="field-label">500</h4>
-    Internal Error
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="salesIdDelete"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /sales/{id}</code></pre></div>
-    <div class="method-summary">Deletes the Vehicle Sale with the specified ID. (<span class="nickname">salesIdDelete</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The Acquisition ID. </div>
-    </div>  <!-- field-items -->
-
-
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    vehicle sale deleted
-        <a href="#"></a>
-    <h4 class="field-label">500</h4>
-    internal error
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-
-  <div class="method"><a name="incomeGet"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /income</code></pre></div>
-    <div class="method-summary">Return the month's income (<span class="nickname">incomeGet</span>)</div>
-    <div class="method-notes">Return the month's income</div>
-
-
-
-
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-
-      Object
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>
-      "{
-        "acquisitions": 22000.53,
-        "sales": 22000.53,
-        "commissions": 22000.53,
-        "income": 22000.53
-      }"
-  </code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    search results matching criteria
-        <a href="#Object">Object</a>
     <h4 class="field-label">500</h4>
     Internal Error
         <a href="#"></a>
@@ -704,9 +559,9 @@ font-style: italic;
 <div class="param">available </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
           <div class="param-desc"><span class="param-type">example: true</span></div>
 <div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-          <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001Z</span></div>
+          <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001+0000</span></div>
 <div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-          <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001Z</span></div>
+          <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001+0000</span></div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -722,9 +577,9 @@ font-style: italic;
 <div class="param">commission (optional)</div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
           <div class="param-desc"><span class="param-type">example: 22000.53</span></div>
 <div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-          <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001Z</span></div>
+          <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001+0000</span></div>
 <div class="param">updated_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-          <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001Z</span></div>
+          <div class="param-desc"><span class="param-type">example: 2016-08-29T09:12:33.001+0000</span></div>
 <div class="param">Acquisition (optional)</div><div class="param-desc"><span class="param-type"><a href="#Acquisition">Acquisition</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
