@@ -4,10 +4,17 @@ Esse é o repositório backend do teste para Dev Jr proposto pela [Devnology](ht
 
 Para entender mais sobre API, entre na documentação dela, que foi gerado usando o [Swagger](https://app.swaggerhub.com/search)
 
-➡ [Documentação online](https://gustavogomesdias.github.io/test-001/) que foi gerada pelo Swagger e levemente modificada por mim (visualmente)
+➡ [Descrição do teste](https://github.com/GustavoGomesDias/test-001/blob/main/test-description.md)
+
+➡ [Documentação online](https://gustavogomesdias.github.io/test-001/)
 
 ➡ [JSON](https://github.com/GustavoGomesDias/test-001/blob/main/documentaion.json) com a documentação
-➡ [Link da API](https://apivehicles.herokuapp.com/acquisition) (status: on)
+
+➡ [Link da API](https://apivehicles.herokuapp.com/acquisition) (status: on ✔)
+
+➡ [Repositório frontend](https://github.com/GustavoGomesDias/test-001-frontend)
+
+➡ [Link do site](https://test-001-frontend.vercel.app/) (status: on ✔) - Caso demore para servidor responder, considere esperar um tempo para a chegada das informações.
 
 ## 📕 Sumário
 1. [Tecnologias usadadas](https://github.com/GustavoGomesDias/test-001#1--tecnologias-usadas)
