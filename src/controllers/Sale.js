@@ -85,6 +85,9 @@ class Sale {
         });
       }
 
+      const acquisisiton = await AcquisitionModel.findByPk(sale.acquisition_id);
+      await acquisisiton.update({ available: true });
+
       await sale.destroy();
       return res.json({ message: 'Veículo deletado.' });
     } catch (err) {
