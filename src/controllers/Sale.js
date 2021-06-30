@@ -41,9 +41,9 @@ class Sale {
         return res.status(400).json({ message: 'Chassi já cadastrado.' });
       }
 
-      const commission = parseFloat(value) * 0.1;
-      const sale = await SaleModel.create({ value, commission, acquisition_id });
       const acquisisiton = await AcquisitionModel.findByPk(acquisition_id);
+      const commission = (parseFloat(value) - parseFloat(acquisisiton.price)) * 0.1;
+      const sale = await SaleModel.create({ value, commission, acquisition_id });
       await acquisisiton.update({ available: false });
       return res.status(200).json(sale);
     } catch (err) {
