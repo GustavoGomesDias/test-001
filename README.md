@@ -10,7 +10,7 @@ Para entender mais sobre API, entre na documentação dela, que foi gerado usand
 
 ➡ [JSON](https://github.com/GustavoGomesDias/test-001/blob/main/documentaion.json) com a documentação
 
-➡ [Link da API](https://apivehicles.herokuapp.com/acquisition) (status: on ✔)
+➡ [Link da API](https://apivehicles.herokuapp.com/acquisition) (status: off ❌)
 
 ➡ [Repositório frontend](https://github.com/GustavoGomesDias/test-001-frontend)
 
@@ -186,7 +186,7 @@ Motivo pelo qual eu escolhi o Heroku: Eu escolhi o Heroku por conta dele não pr
     heroku ps:scale web=0
     ```
     Mas isso não é muito necessário, uma vez que o próprio Heroku verifica quando os dynos estão ociosos e os "coloca para dormir" (pelo menos é assim para os dynos gratuitos, nunca usei nada pago deles).
-14. Abra o app e siga a docmuntação:
+14. Abra o app e siga a documentação:
     ```
     heroku open
     ```
