@@ -50,7 +50,7 @@ Existem dois bancos de dados por conta de eu ter começado usando o MySQL, mas t
     npm install
     ```
 
-3. Vá até a o arquivo database.cjs que se encontra em src/config/database.cjs e comente as seguintes linhas (faça isso só para rodar localmente:
+3. Vá até a o arquivo database.cjs que se encontra em src/config/database.cjs e comente as seguintes linhas (faça isso só para rodar localmente):
 
     ```js
       ...
